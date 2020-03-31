@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TwoPlayerGameActivity">
+
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Robertas Turn" />
+
+    <TableLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+
+            <ImageView
+                android:id="@+id/btn1"
+                android:tag="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="gameBtnPressed"
+                app:srcCompat="@drawable/emptylocation" />
+
+            <ImageView
+                android:id="@+id/btn2"
+                android:tag="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="gameBtnPressed"
+                app:srcCompat="@drawable/emptylocation" />
+
+            <ImageView
+                android:id="@+id/btn3"
+                android:tag="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="gameBtnPressed"
+                app:srcCompat="@drawable/emptylocation" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/btn4"
+                android:tag="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="gameBtnPressed"
+                app:srcCompat="@drawable/emptylocation" />
+
+            <ImageView
+                android:id="@+id/btn5"
+                android:tag="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="gameBtnPressed"
+                app:srcCompat="@drawable/emptylocation" />
+
+            <ImageView
+                android:id="@+id/btn6"
+                android:tag="6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="gameBtnPressed"
+                app:srcCompat="@drawable/emptylocation" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/btn7"
+                android:tag="7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="gameBtnPressed"
+                app:srcCompat="@drawable/emptylocation" />
+
+            <ImageView
+                android:id="@+id/btn8"
+                android:tag="8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="gameBtnPressed"
+                app:srcCompat="@drawable/emptylocation" />
+
+            <ImageView
+                android:id="@+id/btn9"
+                android:tag="9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="gameBtnPressed"
+                app:srcCompat="@drawable/emptylocation" />
+        </TableRow>
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
