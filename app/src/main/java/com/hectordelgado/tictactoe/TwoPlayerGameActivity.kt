@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_two_player_game.*
+import java.util.*
 import kotlin.random.Random
 
 class TwoPlayerGameActivity : AppCompatActivity() {
@@ -23,8 +24,8 @@ class TwoPlayerGameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_two_player_game)
 
-        player1 = Player(playerName = "Player 1", playerGamePiece = "X", gamePieceImage = R.drawable.crosslocation)
-        player2 = Player(playerName = "Player 2", playerGamePiece = "O", gamePieceImage = R.drawable.circlelocation)
+        player1 = Player(playerName = getString(R.string.twoPlayerGame_player1Name), playerGamePiece = "X", gamePieceImage = R.drawable.crosslocation)
+        player2 = Player(playerName = getString(R.string.twoPlayerGame_player2Name), playerGamePiece = "O", gamePieceImage = R.drawable.circlelocation)
 
         switchPlayer()
     }
@@ -40,32 +41,45 @@ class TwoPlayerGameActivity : AppCompatActivity() {
                 img.setImageResource(currentPlayer.gamePieceImage)
 
                 if (!gameStillActive(currentPlayer.playerGamePiece)) {
-                    gameOver("${currentPlayer.playerName} has won!")
+                    gameOver(String.format(Locale.getDefault(), getString(R.string.twoPlayerGame_gameOver_win_format), currentPlayer.playerName))
                 } else if (gameIsDraw()) {
-                    gameOver("Game is a Draw. You both suck!")
+                    gameOver(String.format(Locale.getDefault(), getString(R.string.twoPlayerGame_gameOver_draw)))
                 } else {
                     switchPlayer()
                 }
 
 
             } else {
-                Toast.makeText(this, "Location is taken!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.twoPlayerGame_locationTaken), Toast.LENGTH_LONG).show()
             }
         } else {
             restartGame()
         }
     }
 
-    private fun positionIsAvailable(position: Int) =
-        gameBoard[position] == EMPTY_GAME_PIECE
-
+    /**
+     * Switches between player1/player2 and vice-versa.
+     * Updates the title and subtitle to display the current player.
+     */
     private fun switchPlayer() {
         player1Turn = !player1Turn
         currentPlayer.copy(if (player1Turn) player1 else player2)
-        val titleTxt = "${currentPlayer.playerName}'s turn\n(Sign is ${currentPlayer.playerGamePiece})"
-        titleTextView.text = titleTxt
+        val title = String.format(Locale.getDefault(), getString(R.string.twoPlayerGame_title_format), currentPlayer.playerName)
+        val subtitle = String.format(Locale.getDefault(), getString(R.string.twoPlayerGame_subtitle_format), currentPlayer.playerGamePiece)
+        titleTextView.text = title
+        subtitleTextView.text = subtitle
     }
 
+    /**
+     * Checks if a game board position is available (empty).
+     */
+    private fun positionIsAvailable(position: Int) =
+        gameBoard[position] == EMPTY_GAME_PIECE
+
+    /**
+     * Checks if a player has won the game.
+     * Uses the common '3 in a row' to check horizontally, vertically, and diagonally.
+     */
     private fun gameStillActive(gamePiece: String): Boolean {
         val horizontalStrategy1 = gameBoard[0] == gamePiece && gameBoard[1] == gamePiece && gameBoard[2] == gamePiece
         val horizontalStrategy2 = gameBoard[3] == gamePiece && gameBoard[4] == gamePiece && gameBoard[5] == gamePiece
@@ -83,6 +97,9 @@ class TwoPlayerGameActivity : AppCompatActivity() {
                 !diagonalStrategy1 && !diagonalStrategy2
     }
 
+    /**
+     * Checks if the game is a draw (all locations are filled).
+     */
     private fun gameIsDraw(): Boolean {
         gameBoard.forEach { location ->
             if (location == EMPTY_GAME_PIECE)
@@ -91,12 +108,20 @@ class TwoPlayerGameActivity : AppCompatActivity() {
         return true
     }
 
-    private fun gameOver(message: String) {
-        val finalMessage = "$message\n(Click any square.)"
-        titleTextView.text = finalMessage
+    /**
+     * Displays a final message and sets the game to being inactive.
+     */
+    private fun gameOver(title: String) {
+
+        val subtitle = String.format(Locale.getDefault(), getString(R.string.twoPlayerGame_finalMessageSubtitle_format))
+        titleTextView.text = title
+        subtitleTextView.text = subtitle
         gameIsActive = false
     }
 
+    /**
+     * Restarts the game and resets the game board.
+     */
     private fun restartGame() {
         gameBoard.fill(EMPTY_GAME_PIECE)
 

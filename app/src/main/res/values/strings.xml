@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Tic Tac Toe</string>
+    <string name="mainScreen_btn_twoPlayerGame">2-Player Game</string>
+    <string name="twoPlayerGame_contentDescription_empty">empty location</string>
+    <string name="twoPlayerGame_contentDescription_circle">circle game piece</string>
+    <string name="twoPlayerGame_contentDescription_cross">cross game piece</string>
+    <string name="twoPlayerGame_player1Name">Player 1</string>
+    <string name="twoPlayerGame_player2Name">Player 2</string>
+    <string name="twoPlayerGame_title_format">%s\'s Turn</string>
+    <string name="twoPlayerGame_subtitle_format">(Sign Is %s)</string>
+    <string name="twoPlayerGame_gameOver_win_format">%s Has Won!</string>
+    <string name="twoPlayerGame_gameOver_draw">Game Is A Bust.%nNo Winners.</string>
+    <string name="twoPlayerGame_finalMessageSubtitle_format">(Click Any Square To Play Again)</string>
+    <string name="twoPlayerGame_locationTaken">Location is taken!</string>
 </resources>

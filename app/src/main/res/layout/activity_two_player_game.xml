@@ -14,11 +14,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:gravity="center"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Robertas Turn" />
+        tools:text="Player 1's Turn" />
+
+    <TextView
+        android:id="@+id/subtitleTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        tools:text="(Sign is O)" />
 
     <TableLayout
         android:layout_width="0dp"
@@ -26,7 +38,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView">
+        app:layout_constraintTop_toBottomOf="@+id/subtitleTextView">
 
         <TableRow
             android:layout_width="match_parent"
@@ -36,26 +48,29 @@
 
             <ImageView
                 android:id="@+id/btn1"
-                android:tag="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="gameBtnPressed"
+                android:tag="1"
+                android:contentDescription="@string/twoPlayerGame_contentDescription_empty"
                 app:srcCompat="@drawable/emptylocation" />
 
             <ImageView
                 android:id="@+id/btn2"
-                android:tag="2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="gameBtnPressed"
+                android:tag="2"
+                android:contentDescription="@string/twoPlayerGame_contentDescription_empty"
                 app:srcCompat="@drawable/emptylocation" />
 
             <ImageView
                 android:id="@+id/btn3"
-                android:tag="3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="gameBtnPressed"
+                android:tag="3"
+                android:contentDescription="@string/twoPlayerGame_contentDescription_empty"
                 app:srcCompat="@drawable/emptylocation" />
         </TableRow>
 
@@ -66,26 +81,29 @@
 
             <ImageView
                 android:id="@+id/btn4"
-                android:tag="4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="gameBtnPressed"
+                android:tag="4"
+                android:contentDescription="@string/twoPlayerGame_contentDescription_empty"
                 app:srcCompat="@drawable/emptylocation" />
 
             <ImageView
                 android:id="@+id/btn5"
-                android:tag="5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="gameBtnPressed"
+                android:tag="5"
+                android:contentDescription="@string/twoPlayerGame_contentDescription_empty"
                 app:srcCompat="@drawable/emptylocation" />
 
             <ImageView
                 android:id="@+id/btn6"
-                android:tag="6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="gameBtnPressed"
+                android:tag="6"
+                android:contentDescription="@string/twoPlayerGame_contentDescription_empty"
                 app:srcCompat="@drawable/emptylocation" />
         </TableRow>
 
@@ -96,29 +114,31 @@
 
             <ImageView
                 android:id="@+id/btn7"
-                android:tag="7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="gameBtnPressed"
+                android:tag="7"
+                android:contentDescription="@string/twoPlayerGame_contentDescription_empty"
                 app:srcCompat="@drawable/emptylocation" />
 
             <ImageView
                 android:id="@+id/btn8"
-                android:tag="8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="gameBtnPressed"
+                android:tag="8"
+                android:contentDescription="@string/twoPlayerGame_contentDescription_empty"
                 app:srcCompat="@drawable/emptylocation" />
 
             <ImageView
                 android:id="@+id/btn9"
-                android:tag="9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="gameBtnPressed"
+                android:tag="9"
+                android:contentDescription="@string/twoPlayerGame_contentDescription_empty"
                 app:srcCompat="@drawable/emptylocation" />
         </TableRow>
 
     </TableLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
